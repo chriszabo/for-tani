@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Character Sheets</h2>
+<ul>
+{% for character_sheet in character_sheets %}
+    <li><a href="{% url 'character_sheet_edit' character_sheet.pk %}">{{ character_sheet.character_name }}</a></li>
+{% empty %}
+    <li>No character sheets yet.</li>
+{% endfor %}
+</ul>
+<a href="{% url 'character_sheet_new' %}">Create New Character Sheet</a>
+{% endblock %}
